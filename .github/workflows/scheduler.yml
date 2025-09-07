@@ -34,14 +34,15 @@ jobs:
     
     - name: Run appointment checker
       env:
-        ICBC_USERNAME: ${{ secrets.ICBC_USERNAME }}
-        ICBC_PASSWORD: ${{ secrets.ICBC_PASSWORD }}
+        ICBC_LAST_NAME: ${{ secrets.ICBC_LAST_NAME }}
+        ICBC_LICENSE_NUMBER: ${{ secrets.ICBC_LICENSE_NUMBER }}
+        ICBC_KEYWORD: ${{ secrets.ICBC_KEYWORD }}
         LICENSE_TYPE: ${{ secrets.LICENSE_TYPE }}
         PREFERRED_CITY: ${{ secrets.PREFERRED_CITY }}
         EARLIEST_ACCEPTABLE_DATE: ${{ secrets.EARLIEST_ACCEPTABLE_DATE }}
         PREFERRED_TEST_CENTERS: ${{ secrets.PREFERRED_TEST_CENTERS }}
         NOTIFICATION_METHOD: ${{ secrets.NOTIFICATION_METHOD }}
-        CHECK_INTERVAL_MINUTES: ${{ secrets.CHECK_INTERVAL_MINUTES }}
+        CHECK_INTERVAL_MINUTES: ${{ secrets.CHECK_INTERVAL_MINUTES || '10' }}
         EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
         EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
