@@ -28,14 +28,14 @@ class Config:
     
     # Notification Settings
     NOTIFICATION_METHOD = os.getenv('NOTIFICATION_METHOD', 'console')
-    CHECK_INTERVAL_MINUTES = int(os.getenv('CHECK_INTERVAL_MINUTES', '10'))
+    CHECK_INTERVAL_MINUTES = int(os.getenv('CHECK_INTERVAL_MINUTES') or '10')
     
     # Email Configuration
     EMAIL_SENDER = os.getenv('EMAIL_SENDER')
     EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
     EMAIL_RECIPIENT = os.getenv('EMAIL_RECIPIENT')
     SMTP_SERVER = os.getenv('SMTP_SERVER', 'smtp.gmail.com')
-    SMTP_PORT = int(os.getenv('SMTP_PORT', '587'))
+    SMTP_PORT = int(os.getenv('SMTP_PORT') or '587')
     
     # Twilio Configuration
     TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
@@ -49,7 +49,7 @@ class Config:
     
     # Browser Configuration
     HEADLESS_MODE = os.getenv('HEADLESS_MODE', 'true').lower() == 'true'
-    BROWSER_TIMEOUT = int(os.getenv('BROWSER_TIMEOUT', '30'))
+    BROWSER_TIMEOUT = int(os.getenv('BROWSER_TIMEOUT') or '30')
     
     @classmethod
     def get_preferred_test_centers(cls) -> List[str]:
